@@ -1,0 +1,43 @@
+# Data and asset locations. Relative paths are resolved against the repository root.
+# See README.md ("Data") for the expected layout of each directory.
+
+# --- shared -----------------------------------------------------------------------------------
+# FLAME 2023 model files (see README for download instructions).
+flame_assets: assets/flame
+# UV parameterisation of the FLAME/GEM mesh: uvs.npy, vertex_ids.npy, verts_to_uv_index.npy.
+uv_assets: assets/uv
+# UV-space masks: Background_Mouth.png (mouth interior) and Background_Exp_Map_2.png (expression map).
+uv_masks: assets/masks
+# Canonical position map + valid-texel mask (map_0000_back.npy, masks_can0000_back.npy).
+position_map: assets/position_map
+# Where checkpoints, samples and renderings are written.
+output_root: outputs
+
+# --- NeRSemble --------------------------------------------------------------------------------
+# VHAP export of NeRSemble: <subject:03d>/<sequence>/{images,fg_masks,segs,flame_param,transforms.json}.
+nersemble_export: data/nersemble/export
+# Per-camera 4x4 colour correction matrices: <subject:03d>/<camera>.npy.
+nersemble_color_correction: data/nersemble/color_correction
+# SMIRK expression meshes: <subject:03d>/<sequence>/<frame:05d>.obj.
+nersemble_smirk_meshes: data/nersemble/smirk
+# Fitted UV textures: <subject:03d>/tex_can_new_<subject:03d>.png and
+# <subject:03d>/<sequence>/tex_can_new_<frame:05d>{.png,_grad.npy}.
+nersemble_textures: data/nersemble/textures
+# Frontal reference image per subject used for the CLIP identity embedding:
+# <subject:03d>/EXP-9-jaw-2/images/00000_cam_222200037.png.
+nersemble_clip_images: data/nersemble/clip_reference
+# Texture fits used by test_nersemble.py (refit, same layout as nersemble_textures):
+# <subject:03d>/tex_can_new_<subject:03d>.png and <subject:03d>/<sequence>/tex_can_new_<frame:05d>_grad.npy.
+nersemble_test_textures: data/nersemble/textures_test
+
+# --- In-the-wild (monocular, VHAP-tracked) ----------------------------------------------------
+# test_itw.py additionally needs <uv_masks>/Background_Mouth_2.png (mouth region of the map regulariser).
+# VHAP monocular exports: <name>_whiteBg_staticOffset_maskBelowLine/{transforms_train.json,
+# flame_param/<frame:05d>.npz, images/*.png}.
+itw_vhap_export: data/itw/vhap_export
+# Video frames as RGBA PNGs (alpha = foreground mask): <name>/images/<frame:05d>.png.
+itw_frames: data/itw/frames
+# SMIRK expression meshes: <name>/<frame:05d>.obj.
+itw_smirk_meshes: data/itw/smirk
+# Fitted UV textures: <name>/tex_can_new_<frame:05d>.png and <name>/tex_can_new_<frame:05d>_grad.npy.
+itw_textures: data/itw/textures

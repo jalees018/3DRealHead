@@ -1,0 +1,16 @@
+# Install PyTorch first (see README): torch==2.1.2 torchvision==0.16.2 from the cu118 wheel index.
+numpy==1.26.4
+scipy==1.15.3
+opencv-python==4.10.0.84
+matplotlib==3.10.9
+tqdm==4.70.1
+PyYAML==6.0.3
+trimesh==5.2.0
+timm==0.9.16
+smplx==0.1.28
+ftfy==6.3.1
+regex==2026.9.29
+git+https://github.com/openai/CLIP.git
+# Build tools for the CUDA extensions (torch 2.1 needs pkg_resources from setuptools < 70)
+setuptools==69.5.1
+ninja==1.13.2

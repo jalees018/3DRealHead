@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+*.so
+
+# Data, outputs and checkpoints
+data/
+outputs/
+*.pt
+*.pth
+*.mp4
+
+# FLAME model (license does not allow redistribution)
+assets/flame/*
+!assets/flame/README.md
+
+.vscode/
+.idea/
+
+# Machine-specific configs
+configs/cluster.yaml
