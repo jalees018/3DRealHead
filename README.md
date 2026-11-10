@@ -26,8 +26,8 @@ This repository contains the official implementation.
 
 A StyleUNet generator predicts a UV map of 3D Gaussians from two UV-space conditionings:
 
-1. **expression**: per-texel offsets of the tracked (SMIRK) expression mesh from the subject's neutral mesh, together with a texture-gradient map, and
-2. **appearance**: the subject's fitted UV texture.
+1. **expression**: per-texel offsets of the tracked (SMIRK) expression mesh from the subject's neutral mesh, together with a texture-gradient map for the mouth region, and
+2. **appearance**: the subject's fitted UV texture representing the identity.
 
 Each valid texel carries one Gaussian anchored on the FLAME surface. The network predicts a bounded displacement,
 opacity, scale and rotation residuals and SH colours; the Gaussians are posed with FLAME linear blend skinning
@@ -35,8 +35,8 @@ opacity, scale and rotation residuals and SH colours; the Gaussians are posed wi
 
 ```
 expression map ─┐                                         FLAME (shape, expr, pose)
-texture grad  ──┼─► StyleUNet ─► 59-ch Gaussian UV map ─► anchor on mesh + LBS ─► 3DGS render
-UV texture    ──┘
+mouth texture grad  ──┼─► StyleUNet ─► 59-ch Gaussian UV map ─► anchor on mesh + LBS ─► 3DGS render
+UV identity texture    ──┘
 ```
 
 ## Repository layout
